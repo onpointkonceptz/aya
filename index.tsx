@@ -49,10 +49,14 @@ let chat: Chat;
 let chatHistory: Content[] = [];
 
 // --- Gemini AI Configuration ---
-const API_KEY = process.env.API_KEY;
-if (!API_KEY) {
-  addMessage('model', 'Error: API_KEY is not configured. Please set the API_KEY environment variable.');
-  throw new Error("API_KEY not found");
+// IMPORTANT: This API key is hardcoded for testing ONLY.
+// Replace "YOUR_PASTED_GEMINI_API_KEY_HERE" with your actual Gemini API Key.
+// This is a security risk for production applications!
+const API_KEY = "YOUR_PASTED_GEMINI_API_KEY_HERE"; 
+
+if (!API_KEY || API_KEY === "YOUR_PASTED_GEMINI_API_KEY_HERE") {
+    addMessage('model', 'Error: API_KEY is not configured or is still a placeholder. Please set your actual API key.');
+    throw new Error("API_KEY not found or is still placeholder");
 }
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
@@ -195,12 +199,12 @@ async function handleSendMessage(message: string, image: typeof uploadedImage = 
 
 // --- UI Helper Functions ---
 function addMessage(role: 'model' | 'user', text: string): HTMLElement {
-  const messageElement = document.createElement('div');
-  messageElement.classList.add('message', role);
-  messageElement.innerHTML = text;
-  messagesContainer.appendChild(messageElement);
-  scrollToBottom();
-  return messageElement;
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', role);
+    messageElement.innerHTML = text;
+    messagesContainer.appendChild(messageElement);
+    scrollToBottom();
+    return messageElement;
 }
 
 function displayUserMessage(text: string, imageUrl?: string) {
@@ -275,11 +279,11 @@ function clearImagePreview() {
 }
 
 function setLoading(isLoading: boolean) {
-  loadingIndicator.classList.toggle('hidden', !isLoading);
+    loadingIndicator.classList.toggle('hidden', !isLoading);
 }
 
 function scrollToBottom() {
-  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 }
 
 function createInteractiveOptions(parentElement: HTMLElement, options: string[], isInitialMenu: boolean = false) {
@@ -323,11 +327,11 @@ function disablePreviousOptions() {
 
 // --- Event Listeners ---
 chatForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const message = promptInput.value.trim();
-  if (message || uploadedImage) {
-    handleSendMessage(message, uploadedImage);
-  }
+    e.preventDefault();
+    const message = promptInput.value.trim();
+    if (message || uploadedImage) {
+      handleSendMessage(message, uploadedImage);
+    }
 });
 
 uploadBtn.addEventListener('click', () => {
