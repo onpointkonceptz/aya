@@ -1,0 +1,9 @@
+{
+  "name": "Aya - FNPH Kaduna Assistant",
+  "description": "A conversational AI assistant for the Federal Neuro-Psychiatric Hospital Kaduna (FNPH Kaduna) to provide information, guide users, and assist with general and mental health support.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "prompt": ""
+}

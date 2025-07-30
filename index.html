@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aya - FNPH Kaduna Assistant</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/genai": "https://esm.sh/@google/genai@^0.7.0"
+      }
+    }
+  </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div id="chat-container">
+    <header id="chat-header">
+      <div id="logo"></div>
+      <div id="header-title">
+        <h1>Aya</h1>
+        <span>FNPH Kaduna Assistant</span>
+      </div>
+      <button id="close-widget-btn" aria-label="Close Chat">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4148L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"></path></svg>
+      </button>
+    </header>
+    <div id="messages-container">
+      <!-- Messages will be injected here -->
+    </div>
+    <div id="loading-indicator" class="hidden">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div id="image-preview-container" class="hidden"></div>
+    <form id="chat-form">
+      <button type="button" id="upload-btn" aria-label="Upload image">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14.828 7.757L6.343 16.243l-1.414-1.414 8.485-8.485a4 4 0 0 1 5.657 5.657l-8.485 8.485-1.414-1.414 7.071-7.071a2 2 0 1 0-2.828-2.828L6.343 14.828l-1.414-1.414L13.414 4.93a4 4 0 0 1 5.657 0l1.414 1.414a6 6 0 0 0-8.485-8.485L3.515 16.243a1 1 0 1 0 1.414 1.414L13.414 9.172a2 2 0 1 1 2.828 2.828L7.757 20.485a4 4 0 1 1-5.657-5.657l1.414-1.414 1.414 1.414-1.414 1.414a2 2 0 1 0 2.828 2.828l8.485-8.485a1 1 0 0 1-1.414-1.414z"></path></svg>
+      </button>
+       <button type="button" id="mic-btn" aria-label="Record voice note">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1C10.3431 1 9 2.34315 9 4V12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12V4C15 2.34315 13.6569 1 12 1ZM19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12H7C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12H19ZM12 21C12.5523 21 13 21.4477 13 22V23H11V22C11 21.4477 11.4477 21 12 21Z"></path></svg>
+      </button>
+      <input type="text" id="prompt-input" placeholder="Ask Aya anything, or type a number..." autocomplete="off">
+      <button type="submit" id="send-btn" aria-label="Send message">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3.47798 2.31018L21.0116 10.5185C21.7925 10.8539 21.8601 11.9078 21.1332 12.336L12.9348 16.7917L12.9348 21.4457C12.9348 22.3013 11.9168 22.6865 11.3061 22.0758L8.89539 19.6651L4.5441 21.8848C3.89997 22.1813 3.12517 21.6738 3.03052 20.941L1.03052 7.00411C0.916911 6.13685 1.74291 5.43285 2.58432 5.64299L8.49132 7.0519L17.4473 11.4241L3.47798 2.31018Z"></path></svg>
+      </button>
+    </form>
+  </div>
+  <input type="file" id="image-upload-input" class="hidden" accept="image/*" />
+  <script type="module" src="index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
